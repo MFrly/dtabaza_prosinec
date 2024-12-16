@@ -1,0 +1,28 @@
+<!-- templates/list_users.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seznam uživatelů</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Seznam uživatelů</h1>
+    {% from 'macros.html' import render_users_table %}
+    {{ render_users_table(users) }}
+    <a href="{{ url_for('new_user') }}">Přidat nového uživatele</a>
+</body>
+</html>
