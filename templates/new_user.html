@@ -1,0 +1,27 @@
+<!-- templates/new_user.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Přidat nového uživatele</title>
+</head>
+<body>
+    <h1>Přidat nového uživatele</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {% from 'macros.html' import render_field %}
+        
+        {{ render_field(form.name) }}
+        {{ render_field(form.age) }}
+        
+        <p>{{ form.submit }}</p>
+    </form>
+    <a href="{{ url_for('list_users') }}">Zpět na seznam uživatelů</a>
+</body>
+</html>
+
+
+
+
+
