@@ -1,0 +1,8 @@
+<!-- templates/list_users.html -->
+{% from 'macros.html' import render_base, render_users_table %}
+
+{{ render_base('Seznam uživatelů', '
+    <h2>Seznam uživatelů</h2>
+    {{ render_users_table(users) }}
+    <a href="{{ url_for('new_user') }}">Přidat nového uživatele</a>
+') }}
