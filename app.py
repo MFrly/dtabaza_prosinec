@@ -42,9 +42,6 @@ def new_user():
         db.session.add(new_user)
         db.session.commit()
         return redirect(url_for('list_users'))  
-    else:
-        print("Formulář nebyl validní:", form.errors)
-
     return render_template('new_user.html', form=form)
 
 # Route pro zobrazení seznamu uživatelů
@@ -61,8 +58,13 @@ def delete_user(user_id):
     db.session.commit()
     return redirect(url_for('list_users'))
 
+# Zpracování neexistujících stránek
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+# Spuštění aplikace
 if __name__ == '__main__':
     with app.app_context():
-        db.create_all()  # Vytvoří tabulky v databázi, pokud ještě neexistují
-    # Spuštění aplikace s debug=False kvůli problémům s multiprocessing
-    app.run(debug=False)
+        db.create_all()
+    app.run(debug=True)

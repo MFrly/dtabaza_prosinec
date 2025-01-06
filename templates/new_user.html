@@ -1,18 +1,23 @@
-<!-- templates/new_user.html -->
-{% from 'macros.html' import render_base, render_field %}
-
-{{ render_base('Přidat nového uživatele', '
-    <h2>Přidat nového uživatele</h2>
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Přidat uživatele</title>
+</head>
+<body>
+    <h1>Přidat uživatele</h1>
     <form method="POST">
         {{ form.hidden_tag() }}
-        {{ render_field(form.name) }}
-        {{ render_field(form.age) }}
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name }}
+        </p>
+        <p>
+            {{ form.age.label }}<br>
+            {{ form.age }}
+        </p>
         <p>{{ form.submit }}</p>
     </form>
-    <a href="{{ url_for('list_users') }}">Zpět na seznam uživatelů</a>
-') }}
-
-
-
-
+</body>
+</html>
 
